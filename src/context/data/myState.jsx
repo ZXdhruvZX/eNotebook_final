@@ -65,10 +65,28 @@ function MyState(props) {
     setTag("");
   };
 
+    //* Delete Note
+    const deleteNote = async (id) => {
+      const res = await fetch(`http://localhost:4000/api/notes/deletenote/${id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            "auth-token": localStorage.getItem('token')
+          }
+        });
+  
+      //* response
+      const noteData = await res.json();
+      getAllNotes();
+      // console.log(noteData)
+      toast.success(noteData.success)
+    }
+
   return (
     <MyContext.Provider value={{ allNotes, getAllNotes, loading ,title, setTitle, description, 
       setDescription, tag, setTag,
-      addNote}}>
+      addNote,deleteNote}}>
       {props.children}
     </MyContext.Provider>
   );

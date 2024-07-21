@@ -34,7 +34,7 @@ function App() {
             </ProtectedRoute>
           }
           />
-          <Route path="/updatenote" element={
+          <Route path="/notes/edit/:id" element={
             <ProtectedRoute>
               <UpdateNote />
             </ProtectedRoute>
