@@ -9,7 +9,7 @@ function Profile() {
     const [user, setUser] = useState([]);
 
     const userData = async () => {
-        const res = await fetch(`http://localhost:4000/api/auth/getuser`, {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_HOST_URL}/api/auth/getuser`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

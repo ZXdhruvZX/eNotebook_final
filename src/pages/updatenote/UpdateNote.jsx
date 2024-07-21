@@ -18,7 +18,7 @@ function UpdateNote() {
 
   //* Get Note By Id
   const getNotesById = async () => {
-    const res = await fetch(`http://localhost:4000/api/notes/notes/${id}`, {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_HOST_URL}/api/notes/notes/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ function UpdateNote() {
   const updateNote = async () => {
     try {
       const res = await fetch(
-        `http://localhost:4000/api/notes/updatenote/${id}`,
+        `${import.meta.env.VITE_BACKEND_HOST_URL}/api/notes/updatenote/${id}`,
         {
           method: "PUT",
           headers: {

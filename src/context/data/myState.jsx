@@ -12,7 +12,7 @@ function MyState(props) {
   const getAllNotes = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:4000/api/notes/fetchallnotes`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_HOST_URL}/api/notes/fetchallnotes`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +36,7 @@ function MyState(props) {
 
   //* Add note Function
   const addNote = async () => {
-    const res = await fetch(`http://localhost:4000/api/notes/addnote`, {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_HOST_URL}/api/notes/addnote`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ function MyState(props) {
 
     //* Delete Note
     const deleteNote = async (id) => {
-      const res = await fetch(`http://localhost:4000/api/notes/deletenote/${id}`,
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_HOST_URL}/api/notes/deletenote/${id}`,
         {
           method: 'DELETE',
           headers: {
